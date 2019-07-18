@@ -14,10 +14,13 @@ function bubbleSort(arr) {
     }
 }
 
+console.time();
+
 while (done) {
     bubbleSort(arr)
 }
 
-console.log(arr);
+console.timeEnd();
+
 
 
