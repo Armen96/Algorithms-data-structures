@@ -8,17 +8,35 @@ const assert = require('assert');
 
 */
 
-function getFirstAndLastIndexes(arr,target) {
+// let arr = [1,2];
+//
+// for (let m = 0; m < 100000; m++) {
+//     arr.push(2);
+// }
+//
+// arr.push(3);
 
+//if the same element count more than 100000
+// Use getFirstAndLastIndexes
+
+function getFirstAndLastIndexes(arr,target) {
     let firstIndexOfTarget = arr.indexOf(target);
 
     if ( firstIndexOfTarget === -1 ) return [-1,-1];
 
-    let firstIndexOfReversedArrayTarget = arr.reverse().indexOf(target);
-    let lastIndexOfTarget =  (arr.length - 1 ) - firstIndexOfReversedArrayTarget;
+    return [firstIndexOfTarget, arr.lastIndexOf(target) ]
+}
 
-    return [firstIndexOfTarget, lastIndexOfTarget ]
+function getAllIndexes(arr, val) {
+    let indexes = [], i;
+    for(i = 0; i < arr.length; i++){
+        if (arr[i] === val)
+            indexes.push(i);
+    }
 
+    if(indexes.length) return [indexes[0],indexes[indexes.length -1 ]];
+
+    return [-1,-1];
 }
 
 describe("First and Last Indices of an Element in a Sorted Array", () => {
