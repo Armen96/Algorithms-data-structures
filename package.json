@@ -2,7 +2,7 @@
   "name": "sorting-algorithms",
   "version": "1.0.0",
   "description": "sorting-algorithms",
-  "main": "binary-search.js",
+  "main": "algorithms/binary-search.js",
   "scripts": {
     "test": "mocha"
   },
