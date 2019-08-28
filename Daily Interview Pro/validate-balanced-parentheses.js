@@ -77,4 +77,8 @@ describe("Validate Balanced Parentheses", () => {
     it('compiler("{[]})")', function() {
         assert.equal(compiler("{[]})"), false);
     })
+
+    it('compiler("{(})")', function() {
+        assert.equal(compiler("{(})"), false);
+    })
 })
