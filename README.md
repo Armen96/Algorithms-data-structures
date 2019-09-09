@@ -1,2 +1,2 @@
-# sorting-algorithms
-sorting-algorithms
+# Algorithms-Data-Structures
+JavaScript algorithms and daily interview pro 
