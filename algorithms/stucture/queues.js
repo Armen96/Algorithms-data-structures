@@ -54,6 +54,7 @@ data.enqueue(11);
 data.enqueue(13);
 data.enqueue(15);
 
+
 data.dequeue();
 
 console.log(data.front());
