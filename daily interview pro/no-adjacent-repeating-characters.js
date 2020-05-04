@@ -16,7 +16,7 @@ function rearrangeString(str) {
         memo[str[i]] = memo[str[i]] +1 || 1;
     }
 
-    const objKeys = Object.keys(memo);
+    const objKeys = generateObjectKeysByTheirValues(memo);
     let keyNumber = 0;
     let previousValue = '';
 
@@ -67,6 +67,25 @@ function rearrangeString(str) {
         return keyNumber;
     }
 
+    function generateObjectKeysByTheirValues(obj) {
+        let cloneObj = Object.assign({}, obj);
+        let values = Object.values(obj);
+        let sortedValues = values.sort((a, b) => b - a);
+        let response = [];
+
+        sortedValues.forEach(item => {
+            let key = getKeyByValue(cloneObj, item);
+            response.push(key);
+            delete cloneObj[key];
+        });
+
+        return response;
+    }
+
+    function getKeyByValue(object, value) {
+        return Object.keys(object).find(key => object[key] === value);
+    }
+
     return response;
 }
 
@@ -85,5 +104,9 @@ describe('No Adjacent Repeating Characters', () => {
 
     it('should work: abccccc string', () => {
         assert.equal(rearrangeString('abccccc'), 'None');
+    });
+
+    it('should work: abccc string', () => {
+        assert.equal(rearrangeString('abccc'), 'cacbc');
     });
 });
