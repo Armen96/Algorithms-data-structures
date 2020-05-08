@@ -7,30 +7,20 @@
 */
 
 function permute(array) {
+    let initialArray = [[array[0]]];
 
-    // for (let i = 0; i < array.length; i++) {
-    //     memo.push(bindingProcess(array))
-    // }
-
-    let memo = bindingProcess(array, 4);
+    for (let i = 1; i < array.length; i++) {
+        initialArray = bindingProcess(initialArray, array[i]);
+    }
 
     function bindingProcess(arr, number) {
         let bindArray = [];
 
         for (let i = 0; i < arr.length; i++) {
-
-            // let first = [number, ...arr[i]];
-            // bindArray.push(first);
-
             for (let j = 0; j <= arr[i].length; j++) {
 
                 let firstNElements = arr[i].slice(0, j);
                 let lastNElements = arr[i].slice(j, arr[i].length);
-
-
-                // console.log('firstNElements', firstNElements);
-                // console.log('lastNElements', lastNElements);
-
                 let item = [...firstNElements, number, ...lastNElements];
 
                 bindArray.push(item);
@@ -40,20 +30,7 @@ function permute(array) {
         return bindArray;
     }
 
-    return memo;
+    return initialArray;
 }
-let array1 = [[1, 2], [2, 1]];
 
-let array2 = [
-    [ 3, 1, 2 ],
-    [ 1, 3, 2 ],
-    [ 1, 2, 3 ],
-    [ 3, 2, 1 ],
-    [ 2, 3, 1 ],
-    [ 2, 1, 3 ]
-];
-
-
-
-
-console.log(permute(array2, 4));
+console.log(permute([1, 2, 3])); // [[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]
