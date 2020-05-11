@@ -4,7 +4,8 @@
   "description": "sorting-algorithms",
   "main": "algorithms/binary-search.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "test-jest": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,12 @@
   "homepage": "https://github.com/Armen96/sorting-algorithms#readme",
   "dependencies": {
     "mocha": "^6.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-typescript": "^7.9.0",
+    "babel-jest": "^26.0.1",
+    "jest": "^26.0.1"
   }
 }
