@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/Armen96/sorting-algorithms#readme",
   "dependencies": {
-    "mocha": "^6.2.0"
+    "mocha": "^6.2.0",
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

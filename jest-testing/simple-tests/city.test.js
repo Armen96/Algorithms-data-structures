@@ -45,9 +45,9 @@ describe('matching cities to foods', () => {
 });
 
 describe('test once', () => {
-    test.only('this will be the only test that runs', () => {
-        expect(true).not.toBe(false);
-    });
+    // test.only('this will be the only test that runs', () => {
+    //     expect(true).not.toBe(false);
+    // });
 
     test('this test will not run', () => {
         expect('A').toBe('A');
