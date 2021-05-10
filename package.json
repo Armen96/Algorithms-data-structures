@@ -19,6 +19,8 @@
   "dependencies": {
     "mocha": "^6.2.0",
     "oppressor": "0.0.1",
+    "split": "^1.0.1",
+    "through2": "^4.0.2",
     "through2-map": "^3.0.0"
   }
 }
