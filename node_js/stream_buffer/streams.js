@@ -1,5 +1,5 @@
 /**
- * Streams types
+ * Streams types: There are 5 kinds of streams: readable, writable, transform, duplex, and "classic".
  *
  * Readable -> fs createReadStream
  * Writable -> (req, res) like res
@@ -12,6 +12,7 @@
 const http = require('http');
 const fs = require('fs');
 const { pipeline } = require('stream');
+const oppressor = require('oppressor')
 
 const server = http.createServer(function (req, res) {
     // this approach loads file in server then transfer to client side
@@ -25,6 +26,10 @@ const server = http.createServer(function (req, res) {
     // How to NOT STREAM a FILE over HTTP
     // const stream = fs.createReadStream(__dirname + '/data.txt');
     // stream.pipe(res);
+
+    // Transform
+    // const stream = fs.createReadStream(__dirname + '/data.txt');
+    // stream.pipe(oppressor(req)).pipe(res);
 
     const streamFile = fs.createReadStream(__dirname + '/data.txt');
     pipeline(streamFile, res, err => {

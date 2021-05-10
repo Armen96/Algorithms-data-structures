@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Armen96/sorting-algorithms#readme",
   "dependencies": {
-    "mocha": "^6.2.0"
+    "mocha": "^6.2.0",
+    "oppressor": "0.0.1"
   }
 }
