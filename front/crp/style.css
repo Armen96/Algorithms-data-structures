@@ -1,0 +1,16 @@
+body {
+    background: #f8c49f;
+}
+
+h1 {
+    color: cadetblue;
+}
+
+.image-container {
+    width: 300px;
+    height: auto;
+}
+
+img {
+    width: 100%;
+}
