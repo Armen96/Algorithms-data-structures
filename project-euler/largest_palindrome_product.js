@@ -5,15 +5,18 @@
  */
 
 const VALID_LENGTH = 3;
+const MAX_DIGIT = 999;
+const MIN_DIGIT = 100;
+
 function solution() {
     let result;
     let number1;
     let number2;
 
     palindrome:
-    for (let i = 999*999; i >= 100*100; i--) {
+    for (let i = MAX_DIGIT * MAX_DIGIT; i >= MIN_DIGIT * MIN_DIGIT; i--) {
         if (i.toString() === i.toString().split("").reverse().join("")) {
-            for (let j = 999; j > 100; j--) {
+            for (let j = MAX_DIGIT; j > MIN_DIGIT; j--) {
                 if (i % j === 0 && (i/j).toString().length === VALID_LENGTH) {
                     result = i;
                     number1 = j;
