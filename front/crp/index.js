@@ -7,3 +7,25 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 // new IntersectionObserverEntry()
+
+class Human {
+    talk() {
+        return 'talking';
+    }
+}
+
+class HumanWithHumor extends Human {
+    makeLaugh() {
+        return 'laughing';
+    }
+}
+
+class SuperHuman extends HumanWithHumor {
+    fly() {
+        return 'flying';
+    }
+}
+
+const ben = new SuperHuman();
+console.log(ben);
+console.log(ben.talk());
