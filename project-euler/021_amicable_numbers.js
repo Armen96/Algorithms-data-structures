@@ -1,7 +1,10 @@
 /**
  * Amicable numbers
  *
- */
+ * (M, N)
+ * m1 + m2 + ... +mk = N
+ * n1 + n2 +... +ni = M
+  */
 
 const LIMIT = 10000;
 
