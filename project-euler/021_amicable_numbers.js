@@ -14,10 +14,13 @@ function solution() {
 
     function numberDivisionsSum(number) {
         let divisionsSum = 1;
-        for (let i = 2; i <= Math.ceil(Math.sqrt(number)); i++) {
+        for (let i = 2; i <= Math.floor(Math.sqrt(number)); i++) {
             if (number %i === 0) {
                 divisionsSum = divisionsSum + i;
-                divisionsSum = divisionsSum + number/i;
+
+                if (i !== number / i) {
+                    divisionsSum = divisionsSum + number / i;
+                }
             }
         }
 
@@ -25,7 +28,7 @@ function solution() {
     }
 
 
-    for (let i = 190; i < LIMIT; i++) {
+    for (let i = 1; i < LIMIT; i++) {
         const number = numberDivisionsSum(i);
 
         if (i === numberDivisionsSum(number) && i !== number) {
