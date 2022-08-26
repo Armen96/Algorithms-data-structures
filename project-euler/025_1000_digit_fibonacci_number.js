@@ -28,14 +28,14 @@ const LIMIT = 1000;
 function solution() {
     let f0 = BigInt(1);
     let f1 = BigInt(1);
-    let position = BigInt(2);
+    let position = 2;
 
     while (f1.toString().length < LIMIT) {
         let f1t = f1;
         f1 = f1 + f0;
         f0 = f1t;
 
-        position = position + BigInt(1);
+        position = position + 1;
     }
 
     return position.toString();
