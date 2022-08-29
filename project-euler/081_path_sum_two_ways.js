@@ -96,7 +96,6 @@ for (let i = 0; i < 80; i++) {
     testMatrix1.push(xtxData.splice(0, 80))
 }
 
-
 function solution(matrix) {
     const calcMatrix = new Array(matrix.length).fill(null).map(() => {
         return new Array(matrix.length).fill(0)
@@ -120,7 +119,6 @@ function solution(matrix) {
     }
 
     return calcMatrix[0][0];
-
 }
 
 let result = solution(testMatrix1);
