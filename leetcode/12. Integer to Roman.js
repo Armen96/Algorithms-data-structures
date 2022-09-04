@@ -21,19 +21,23 @@ function solution(num) {
         50: 'L',
         100: 'C',
         500: 'D',
-        1000: 'M'
+        1000: 'M',
+        4: 'IV',
+        9: 'IX',
+        40: 'XL',
+        90: 'XC',
+        400: 'CD',
+        900: 'CM'
     };
 
     let numberChunks = [];
 
-    let i = num.toString().length - 1; // 4 1000 100 10
+    let i = num.toString().length - 1;
     while (i >= 0) {
         let chunk = Math.floor(num / 10 ** i) * 10 ** i;
         num = num - chunk;
 
-        if (chunk) {
-            numberChunks.push(chunk)
-        }
+        if (chunk) { numberChunks.push(chunk) }
 
         i--;
     }
@@ -46,53 +50,26 @@ function solution(num) {
                 let tLength = numberChunks[j] / 1000;
                 output = output + '' + romanCombinations[1000].repeat(tLength);
             } else if (numberChunks[j] > 500) {
-                if (numberChunks[j] === 900) {
-                    output = output + '' + romanCombinations[100] + '' + romanCombinations[1000]
-                } else {
-                    output = output + '' + romanCombinations[500]
-
-                    let hLength = (numberChunks[j] - 500) / 100;
-                    output = output + '' + romanCombinations[100].repeat(hLength)
-                }
+                output = output + '' + romanCombinations[500]
+                let hLength = (numberChunks[j] - 500) / 100;
+                output = output + '' + romanCombinations[100].repeat(hLength)
             } else if (numberChunks[j] > 100) {
-                if (numberChunks[j] === 400) {
-                    output = output + '' + romanCombinations[100] + '' + romanCombinations[500]
-                } else {
-                    let hLength = numberChunks[j] / 100;
-                    output = output + '' + romanCombinations[100].repeat(hLength)
-                }
+                let hLength = numberChunks[j] / 100;
+                output = output + '' + romanCombinations[100].repeat(hLength)
             } else if (numberChunks[j] > 50) {
-                if (numberChunks[j] === 90) {
-                    output = output + '' + romanCombinations[10] + '' + romanCombinations[100]
-                } else {
-                    output = output + '' + romanCombinations[50]
-
-                    let hLength = (numberChunks[j] - 50) / 10;
-                    output = output + '' + romanCombinations[10].repeat(hLength)
-                }
+                output = output + '' + romanCombinations[50]
+                let hLength = (numberChunks[j] - 50) / 10;
+                output = output + '' + romanCombinations[10].repeat(hLength)
             } else if (numberChunks[j] > 10) {
-                if (numberChunks[j] === 40) {
-                    output = output + '' + romanCombinations[10] + '' + romanCombinations[50]
-                } else {
-                    let hLength = numberChunks[j] / 10;
-                    output = output + '' + romanCombinations[10].repeat(hLength)
-                }
+                let hLength = numberChunks[j] / 10;
+                output = output + '' + romanCombinations[10].repeat(hLength)
             } else if (numberChunks[j] > 5) {
-                if (numberChunks[j] === 9) {
-                    output = output + '' + romanCombinations[1] + '' + romanCombinations[10]
-                } else {
-                    output = output + '' + romanCombinations[5]
-
-                    let hLength = (numberChunks[j] - 5) / 1;
-                    output = output + '' + romanCombinations[1].repeat(hLength)
-                }
+                output = output + '' + romanCombinations[5]
+                let hLength = (numberChunks[j] - 5) / 1;
+                output = output + '' + romanCombinations[1].repeat(hLength)
             } else if (numberChunks[j] > 1) {
-                if (numberChunks[j] === 4) {
-                    output = output + '' + romanCombinations[1] + '' + romanCombinations[5]
-                } else {
-                    let hLength = numberChunks[j] / 1;
-                    output = output + '' + romanCombinations[1].repeat(hLength)
-                }
+                let hLength = numberChunks[j] / 1;
+                output = output + '' + romanCombinations[1].repeat(hLength)
             }
         }
     }
