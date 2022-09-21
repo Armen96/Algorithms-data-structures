@@ -10,10 +10,19 @@ var sortColors = function(nums) {
         }
 
         let pivot = arr[Math.floor(Math.random() * arr.length)];
+        let lessThanPivot = [];
+        let greaterThanPivot = [];
+        let equalPivot = [];
 
-        let lessThanPivot = arr.filter(i => i < pivot);
-        let greaterThanPivot = arr.filter(i => i > pivot);
-        let equalPivot = arr.filter(i => i === pivot);
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < pivot) {
+                lessThanPivot.push(arr[i]);
+            } else if (arr[i] > pivot) {
+                greaterThanPivot.push(arr[i]);
+            } else {
+                equalPivot.push(arr[i]);
+            }
+        }
 
         return [...quickSort(lessThanPivot), ...equalPivot, ...quickSort(greaterThanPivot)];
     }
@@ -21,4 +30,6 @@ var sortColors = function(nums) {
     return quickSort(nums)
 };
 
-console.log(sortColors([2,0,2,1,1,0]));
+console.time();
+console.log(sortColors([2,0,2,1,1,0,0,1]));
+console.timeEnd();
