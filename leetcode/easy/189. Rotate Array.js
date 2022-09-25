@@ -29,6 +29,7 @@ let rotate = function (nums, k) {
         let m = Math.floor(k / arraySize);
         kk = k - (arraySize * m)
     }
+    // k = k % nums.length;
 
     let firstChunk = nums.slice(0, arraySize - kk);
     let lastChunk = nums.slice(arraySize - kk, arraySize);
