@@ -8,27 +8,33 @@ const assert = require('assert');
  * Given a string, s, find the longest palindromic substring in s.
  */
 function longestPalindrome(str) {
-    let palindromes = [];
+    // let palindromes = [];
+    let longestStr = '';
     for ( let i = 0; i <= str.length; i++ ) {
         for ( let j = i; j <= str.length; j++ ) {
             let subString = str.substring(i, j);
             let subStringReverse = subString.split('').reverse().join('');
 
-            if( subString === subStringReverse ) {
-                palindromes.push(subString)
+            if(subString === subStringReverse ) {
+                if (subString.length > longestStr.length) {
+                    longestStr = subString
+                }
+                // palindromes.push(subString)
             }
         }
     }
 
-    let palindromeLength = Math.max(...palindromes.map(function (value) {
-        return value.length
-    }));
+    return [longestStr, longestStr.length];
 
-    let LongestPalindrome = palindromes.filter((val) => {
-        return val.length === palindromeLength
-    });
-
-    return [LongestPalindrome,palindromeLength];
+    // let palindromeLength = Math.max(...palindromes.map(function (value) {
+    //     return value.length
+    // }));
+    //
+    // let LongestPalindrome = palindromes.filter((val) => {
+    //     return val.length === palindromeLength
+    // });
+    //
+    // return [LongestPalindrome,palindromeLength];
 }
 
 describe('Find the longest palindromic substring', () => {
