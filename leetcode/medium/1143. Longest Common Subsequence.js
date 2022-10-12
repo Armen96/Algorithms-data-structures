@@ -48,3 +48,42 @@ let result = longestCommonSubsequence(
 );
 console.timeEnd();
 console.log(result);
+
+
+
+let longestCommonSubsequenceDP = function(text1, text2) {
+    const dp = [];
+    let min =  text1.length > text2.length ? text2 : text1;
+    let max =  text1.length > text2.length ? text1 : text2;
+    let row = [0, ...min.split(''), 0];
+    dp.push(row);
+
+    for (let i = 0; i <= max.length; i++) {
+        let arr = new Array(min.length + 2).fill(0);
+        arr[0] = max[i] ? max[i] : 0;
+        dp.push(arr);
+    }
+
+    for (let i = dp.length - 2; i > 0; i--) {
+        for (let j = dp[i].length - 2; j > 0 ; j--) {
+            let value = 0;
+
+            if (dp[i][0] === dp[0][j]) {
+                value = 1 + dp[i + 1][j + 1];
+            } else {
+                value = Math.max(dp[i][j + 1], dp[i + 1][j])
+            }
+
+            dp[i][j] = value;
+        }
+    }
+
+    return dp[1][1];
+};
+console.time()
+let result2 = longestCommonSubsequenceDP(
+    "fcvafurqjylclorwfoladwfqzkbepeletybmrczgtmxctuny",
+    "nohgdazargvalupetizjslkbohqlknkdqjhmxsgnybsjedmzkrkhwryzan"
+);
+console.timeEnd();
+console.log(result2);
