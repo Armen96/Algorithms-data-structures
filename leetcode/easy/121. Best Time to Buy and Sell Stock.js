@@ -66,3 +66,25 @@ let input = [7,1,5,3,6,4];
 
 let result = maxProfitV2(input);
 console.log(result);
+
+
+let maxProfitV3 = function(prices) {
+    let maxProfitValue = 0;
+    let min = Number.MAX_VALUE;
+
+    for (let i = 0; i < prices.length; i++) {
+        if (prices[i] < min) {
+            min = prices[i];
+        } else {
+            let currentProfit = prices[i] - min;
+            if (currentProfit > maxProfitValue) {
+                maxProfitValue = currentProfit;
+            }
+        }
+    }
+
+    return maxProfitValue;
+};
+
+let result3 = maxProfitV3(input);
+console.log('3', result3);
