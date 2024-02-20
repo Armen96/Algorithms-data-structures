@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "blob-to-buffer": "^1.2.9",
+    "express": "^4.18.2",
     "form-data": "^4.0.0",
     "mocha": "^6.2.0",
     "oppressor": "0.0.1",
