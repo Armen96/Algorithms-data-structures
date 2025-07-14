@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+    <div class="container" style="margin-top: 10px">
+         <button type="button" class="btn" id="head-query">Trigger Head Query</button>
+
+         <button type="button" class="btn btn-default" id="get-query">Trigger Get Query</button>
+    </div>
+
+    <div class="container" style="margin-top: 10px" id="content">
+
+    </div>
+
+    <script>
+         $(document).ready(function(){
+             $("#head-query").click(function(){
+                    $.ajax({
+                        url: "http://localhost:3000/image",
+                        type: "HEAD",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Content-Range": "bytes=0-1000",
+                        },
+                        success: function(data){
+                            console.log(data);
+                        }
+                    });
+             });
+
+                $("#get-query").click(function(){
+                        $.ajax({
+                            url: "http://localhost:3000/image",
+                            type: "GET",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Content-Range": "bytes=0-1000",
+                            },
+                            success: function(data){
+                                console.log(data);
+                                // show data inside the content div
+                                $("#content").html(data);
+                            }
+                        });
+                });
+         });
+    </script>
+
+
+</body>
+</html>
